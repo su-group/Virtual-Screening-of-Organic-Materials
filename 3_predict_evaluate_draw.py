@@ -131,7 +131,7 @@ if __name__ == '__main__':
         model_path = list_model[model_index]
         print(f"{model_index}/{len(list_model)}    ", model_path)
         # load model
-        if not ('pre-' in model_path or 'class' in model_path or 'pretrain' in model_path) and "MpPD" in model_path:
+        if not ('pre-' in model_path or 'class' in model_path or 'pretrain' in model_path):
             fold_path = r"result/" + model_path.split("/")[-1]
             folder = os.path.exists(fold_path)
             if not folder:
