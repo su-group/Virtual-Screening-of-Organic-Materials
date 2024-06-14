@@ -6,7 +6,7 @@ Machine learning is becoming a preferred method for the virtual screening of org
 
 ## Environment
 
-Use the environment provided by [rxn yields]([rxn4chemistry/rxn_yields: Code complementing our manuscript on the prediction of chemical reaction yields (https://iopscience.iop.org/article/10.1088/2632-2153/abc81d) and data augmentation strategies (https://doi.org/10.26434/chemrxiv.13286741). (github.com)](https://github.com/rxn4chemistry/rxn_yields/tree/master/))
+Use the environment provided by [rxn yields](https://github.com/rxn4chemistry/rxn_yields/tree/master/)
 
 ```
 `conda create -n yields python=3.6 -y
