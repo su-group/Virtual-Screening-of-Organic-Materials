@@ -4,21 +4,29 @@ Machine learning is becoming a preferred method for the virtual screening of org
 
 
 
-## Environment
+## Install
 
-Use the environment provided by [rxn yields](https://github.com/rxn4chemistry/rxn_yields/tree/master/)
+Use the Python environment provided by [rxn yields](https://github.com/rxn4chemistry/rxn_yields/tree/master/)
 
 ```
-`conda create -n yields python=3.6 -y
+conda create -n yields python=3.6 -y
 conda activate yields
 conda install -c rdkit rdkit=2020.03.3.0 -y
-conda install -c tmap tmap -y`
-`git clone https://github.com/rxn4chemistry/rxn_yields.git`
-`cd rxn_yields`
-`pip install -e .`
+conda install -c tmap tmap -y
+git clone https://github.com/rxn4chemistry/rxn_yields.git
+cd rxn_yields
+pip install -e .
 ```
 
 Recommended  installation under ***Linux***
+
+Download the project code and run it in this environment
+
+```
+git clone https://github.com/su-group/Virtual-Screening-of-Organic-Materials.git
+```
+
+
 
 ## Data and Models
 
@@ -33,11 +41,12 @@ Fine-tuning models are placed under `best_model` folder
 
 ```
 Directory structure
-├─ ├── 1_pre_training.py
-├─ ├── 2.1 fine_tuning_HOP.py
-├─ ├── 2_fine_tuning.py
-├─ ├── 3_predict_evaluate_draw.py
+├─ ├── step1 pre_training.py
+├─ ├── step2_1 fine_tuning_HOP.py
+├─ ├── step2 fine_tuning.py
+├─ ├── step3 predict_evaluate_draw.py
 ├─ ├── README.md
+├─ ├── LICENSE
 ├─ ├── best_model/
 ├─ ├── best_pre_model/
 │   ├─ ├── pre-CEPDB/
@@ -60,18 +69,29 @@ Directory structure
 
 
 
-## Code
-<br />`1_pre_training.py` is used for pre-training models. Pre-training datasets can be replaced by modifying read paths.
+## Getting Started
+`step1 pre_training.py` is used for pre-training models. Pre-training datasets can be replaced by modifying read paths.
 
-`2_fine_tuning.py` is used for transfer learning. Fine-tuning datasets can be replaced by modifying read paths.
+`step2 fine_tuning.py` is used for transfer learning. Fine-tuning datasets can be replaced by modifying read paths.
 
-`2.1 fine_tuning_HOP.py`is used for Bayesian hyperparameter optimization. Bayesian hyperparameter optimization through the use of [wandb](https://wandb.ai/site)
+`step2_1 fine_tuning_HOP.py`is used for Bayesian hyperparameter optimization. Bayesian hyperparameter optimization through the use of [wandb](https://wandb.ai/site)
 
-`3_predict_evaluate_draw.py`is used to evaluate models in batches.
-
-
+`step3 predict_evaluate_draw.py`is used to evaluate models in batches.
 
 
+
+## License
+
+This project is licensed under the MIT License.
 
 ## Cited
-@misc{zhang2024transfer,<br />      title={Transfer Learning across Different Chemical Domains: Virtual Screening of Organic Materials with Deep Learning Models Pretrained on Small Molecule and Chemical Reaction Data}, <br />      author={Chengwei Zhang and Yushuang Zhai and Ziyang Gong and Hongliang Duan and Yuan-Bin She and Yun-Fang Yang and An Su},<br />      year={2024},<br />      eprint={2311.18377},<br />      archivePrefix={arXiv},<br />      primaryClass={physics.chem-ph}<br />}
+```
+@misc{zhang2024transfer,<br />      
+title={Transfer Learning across Different Chemical Domains: Virtual Screening of Organic Materials with Deep Learning Models Pretrained on Small Molecule and Chemical Reaction Data}, <br />      
+author={Chengwei Zhang and Yushuang Zhai and Ziyang Gong and Hongliang Duan and Yuan-Bin She and Yun-Fang Yang and An Su},<br /> 
+year={2024},<br />      
+eprint={2311.18377},<br />      
+archivePrefix={arXiv},<br />      
+primaryClass={physics.chem-ph}<br />}
+```
+
