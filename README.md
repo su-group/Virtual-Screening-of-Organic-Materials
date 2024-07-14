@@ -4,34 +4,59 @@ Machine learning is becoming a preferred method for the virtual screening of org
 
 
 
-## Install
-
-Use the Python environment provided by [rxn yields](https://github.com/rxn4chemistry/rxn_yields/tree/master/)
-
-```
-conda create -n yields python=3.6 -y
-conda activate yields
-conda install -c rdkit rdkit=2020.03.3.0 -y
-conda install -c tmap tmap -y
-git clone https://github.com/rxn4chemistry/rxn_yields.git
-cd rxn_yields
-pip install -e .
-```
+## Installation
 
 Recommended  installation under ***Linux***
 
-Download the project code and run it in this environment
+It is recommended to install this project using **pip**
 
 ```
+pip install vsom==0.1.5
+```
+
+### **Necessary package**
+
+`numpy`
+
+`pandas`
+
+`matplotlib`
+
+`seaborn`
+
+`rdkit`
+
+`torch<2.0.0`
+
+[rxn yields]([rxn4chemistry/rxn_yields: Code complementing our manuscript on the prediction of chemical reaction yields (https://iopscience.iop.org/article/10.1088/2632-2153/abc81d) and data augmentation strategies (https://doi.org/10.26434/chemrxiv.13286741). (github.com)](https://github.com/rxn4chemistry/rxn_yields/tree/master/))
+
+
+
+If you are having problems installing the environment, you can also try the following process to configure the environment:
+
+```
+conda create -n vsom python=3.6
+conda activate vsom
+conda install matplotlib
+conda install seaborn
+conda install -c rdkit rdkit=2020.03.3.0 -y
+git clone https://github.com/rxn4chemistry/rxn_yields.git
+cd rxn_yields
+pip install -e .
+
 git clone https://github.com/su-group/Virtual-Screening-of-Organic-Materials.git
+cd Virtual-Screening-of-Organic-Materials
+pip install -r requirements.txt
+pip install --editable .
 ```
 
 
 
 ## Data and Models
 
-**The main code for the project is provided here**
-We provide the data used, the trained BERT pre-trained model, and the fine-tuned model after transfer learning. Please go to [here](https://doi.org/10.6084/m9.figshare.24679305.v5) to download
+**The  code for the project is provided here and full projects including data and code are stored in [Figshare](https://doi.org/10.6084/m9.figshare.24679305)**
+
+We provide the data used, the trained BERT pre-trained model, and the fine-tuned model after transfer learning. Please go to [*Figshare*](https://doi.org/10.6084/m9.figshare.24679305) to download
 
 Pre- training and fine-tuning data is placed under the `data` folder
 
@@ -39,50 +64,41 @@ pre-training models are placed under `best_pre_model/` folder
 
 Fine-tuning models are placed under `best_model` folder
 
-```
-Directory structure
-├─ ├── step1 pre_training.py
-├─ ├── step2_1 fine_tuning_HOP.py
-├─ ├── step2 fine_tuning.py
-├─ ├── step3 predict_evaluate_draw.py
-├─ ├── README.md
-├─ ├── LICENSE
-├─ ├── best_model/
-├─ ├── best_pre_model/
-│   ├─ ├── pre-CEPDB/
-│   ├─ ├── pre-ChEMBL/
-│   ├─ ├── pre-USPTO/
-│   ├─ ├── pre-USPTO-SMILES/
-│   ├─ ├── pre-USPTO-SMILES-clear/
-│   ├─ ├── vocab.txt
-├─ ├── data/
-│   ├─ ├── fine_turning_data/
-│   │   ├─ ├── EOO/
-│   │   ├─ ├── MpDB/
-│   │   ├─ ├── PcDB/
-│   │   ├─ └── Solar/
-│   ├─ └── pretrain_data/
-│   │   ├─ ├── CEPDB/
-│   │   ├─ ├── USPTO/
-│   │   ├─ └── chembl/
-```
-
 
 
 ## Getting Started
-`step1 pre_training.py` is used for pre-training models. Pre-training datasets can be replaced by modifying read paths.
+`pretraining.py` is used for pre-training models. Pre-training datasets can be replaced by modifying read paths.
 
-`step2 fine_tuning.py` is used for transfer learning. Fine-tuning datasets can be replaced by modifying read paths.
+```
+e.g. 
+python3 -m vsom.pretraining.py --data_path ../data/pretrain_data/USPTO.csv --out_put_dir ../test
+```
 
-`step2_1 fine_tuning_HOP.py`is used for Bayesian hyperparameter optimization. Bayesian hyperparameter optimization through the use of [wandb](https://wandb.ai/site)
+`fine_tuning.py` is used for transfer learning. Fine-tuning datasets can be replaced by modifying read paths.
 
-`step3 predict_evaluate_draw.py`is used to evaluate models in batches.
+```
+e.g. 
+python3 -m vsom.fine_tuning.py --data_path ../data/solar/solar.csv --pre_model USPTO --labels KS_gap --data_name Solar
+```
+
+`fine_tuning_HypOpmit.py`is used for Bayesian hyperparameter optimization. Bayesian hyperparameter optimization through the use of [wandb](https://wandb.ai/site).
+
+```
+e.g. 
+python3 -m vsom.fine_tuning_HypOpmit.py --data_path ../data/solar/solar.csv --pre_model USPTO --labels KS_gap --data_name Solar
+```
+
+`predict_evaluate_draw.py`is used to evaluate models in batches.
 
 
 
 ## License
 
 This project is licensed under the MIT License.
+
+## External Archive
+
+This project is also archived on *Figshare* with the following DOI: [*10.6084/m9.figshare.24679305*](https://doi.org/10.6084/m9.figshare.24679305)
 
 ## Cited
 ```

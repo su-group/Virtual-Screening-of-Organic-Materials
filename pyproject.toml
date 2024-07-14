@@ -1,20 +1,23 @@
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[project]
+[tool.poetry]
 name = "vsom"
-version = "0.0.1"
+version = "0.1.5"
+description = "the code of virtual screening of organic materials"
+authors = ["su-group"]
+license = "MIT"
 
-description = "the package of virtual-screening-of-organic-materials"
-readme = "README.md"
-requires-python = "=3.6"
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-]
+[tool.poetry.dependencies]
+python = "^3.6"
+numpy = ">=1.19.2, <2.0"
+pandas = ">=1.1.5, <2.0"
+rdkit = "^2023.9.1"
+matplotlib = "^3.9.1"
+seaborn = "^0.13.2"
+pytorch = ">=1.5.1, <1.10.0"
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
 
 [project.urls]
-Homepage = "https://github.com/su-group/virtual-screening-of-organic-materials"
-Issues = "https://github.com/su-group/virtual-screening-of-organic-materials/issues"
+Homepage = "Https://github.com/su-group/Virtual-Screening-of-Organic-Materials"
