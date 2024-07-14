@@ -28,7 +28,7 @@ pip install vsom==0.1.5
 
 `torch<2.0.0`
 
-[rxn yields]([rxn4chemistry/rxn_yields: Code complementing our manuscript on the prediction of chemical reaction yields (https://iopscience.iop.org/article/10.1088/2632-2153/abc81d) and data augmentation strategies (https://doi.org/10.26434/chemrxiv.13286741). (github.com)](https://github.com/rxn4chemistry/rxn_yields/tree/master/))
+[rxn yields](https://github.com/rxn4chemistry/rxn_yields.git)
 
 
 
