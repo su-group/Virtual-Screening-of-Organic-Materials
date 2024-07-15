@@ -11,22 +11,22 @@ Recommended  installation under ***Linux***
 It is recommended to install this project using **pip**
 
 ```
-pip install vsom==0.1.5
+pip install vsom==0.1.7
 ```
 
 ### **Necessary package**
 
-`numpy`
+`numpy <2.0`
 
-`pandas`
+`pandas <2.0`
 
 `matplotlib`
 
 `seaborn`
 
-`rdkit`
+`rdkit >=2020.03.3.0`
 
-`torch<2.0.0`
+`torch <2.0.0`
 
 [rxn yields](https://github.com/rxn4chemistry/rxn_yields.git)
 
